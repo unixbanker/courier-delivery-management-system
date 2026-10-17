@@ -4,6 +4,8 @@
     {
         static void Main(string[] args)
         {
+            List<Shipment> shipmentList = new List<Shipment>();
+
             int choice;
             do
             {
@@ -25,19 +27,19 @@
                 switch (choice)
                 {
                     case 1:
-                        CreateSampleData();
+                        CreateSampleData(shipmentList);
                         break;
                     case 2:
-                        ViewAllShipments();
+                        ViewAllShipments(shipmentList);
                         break;
                     case 3:
-                        DisplayShipmentProfile();
+                        //DisplayShipmentProfile();
                         break;
                     case 4:
-                        CalculateShipmentCost();
+                        //CalculateShipmentCost();
                         break;
                     case 5:
-                        TestITrackableInterface();
+                        //TestITrackableInterface();
                         break;
                     case 6:
                         Console.WriteLine("Exiting system...");
@@ -48,6 +50,22 @@
                 }
             } while (choice != 6);
         }
-    }
+        static void CreateSampleData(List<Shipment> data)
+        {
+
+            Console.WriteLine("Sample data creation not yet implemented.");
+            FragileShipment fs = new FragileShipment("fs123", "mary", "paul", 50,
+                                                   "pending", "12/10/26",
+                                                 "just deliver it", false);
+
+            data.Add(fs);
+        }
+        static void ViewAllShipments(List<Shipment> data)
+        {
+            foreach (Shipment shipment in data)
+            {
+                shipment.PrintDetails();
+            }
+        }
     }
 }
